@@ -15,4 +15,19 @@
 
 //можно поменять порядлк
 INSERT INTO films (release_date, title, rating, country) VALUES('1990-02-12', 'MATRIX', 18, 8.7, 'США');
+
+//можно встаить много сразу
+INSERT INTO films VALUES ('1990-02-12', 'MATRIX', 18, 8.7, 'США'), ('1990-02-12', 'MATRIX', 18, 8.7, 'США'), ('1990-02-12', 'MATRIX', 18, 8.7, 'США'), ;
+```
+
+### Получение данных
+```sh
+  // ВЫБОРКА - ТАБЛИЦА - УСЛОВИЕ
+
+  - SELECT * FROM FILM; //все поля
+  - SELECT title, country FROM film;
+
+ - SELECT title, country, rating/2 AS fire_start_rating FROM film;
+- SELECT * FROM film where release_date > "2000-01-01" AND age_restriction < 18;
+
 ```
