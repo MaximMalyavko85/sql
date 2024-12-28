@@ -9,3 +9,10 @@
     country VARCHAR(60),
 );
 ```
+
+```sh
+  INSERT INTO films VALUES('MATRIX', '1990-02-12', 18, 8.7, 'США'); // порядок имеет значение
+
+//можно поменять порядлк
+INSERT INTO films (release_date, title, rating, country) VALUES('1990-02-12', 'MATRIX', 18, 8.7, 'США');
+```
