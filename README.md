@@ -40,17 +40,24 @@ INSERT INTO films VALUES ('1990-02-12', 'MATRIX', 18, 8.7, 'США'), ('1990-02-
 **JOIN** - берет данные и добавляет в текущую таблицу
 **INNER JOIN** - в postgres это то же самое, что и JOIN (они возарвщают пересечение - если даннфе есть там и там). Пример - в фильмах есть фильм с Францией. А в таблице с фильмами Франции нет. Фильм с Францией в выборку не попадет
 
-**LEFT JOIN ** - если надо вывести все фильмы со странами, даже, если стран нет (все данные из исходной, даже, если в смежной данных нет)
+**LEFT JOIN** - если надо вывести все фильмы со странами, даже, если стран нет (все данные из исходной, даже, если в смежной данных нет)
 
-**RIGHT JOIN ** - в выборку попадут все значения из соединяемой таблицы
+**RIGHT JOIN** - в выборку попадут все значения из соединяемой таблицы
 
 ```sh
 // надо указать условие - по чему обьединять
 // если поменять местами SELECT * FROM counntry Join film - результат такой же (порядок только иной)
 
   SELECT * FROM film JOIN country ON film.country = country.name;
-
   SELECT title, country, currency FROM film JOIN country ON film.country = country.name;
+
+  SELECT 
+  order_id, order_date, total_amount, customer_name, email 
+  from orders o 
+  JOIN customers c 
+  ON c.customer_id=o.customer_id
+  order by order_date
+  ;
 
 
 // left JOIN - порядок FROM country LEFT JOIN film важент - так как country будет вставлена вся целиком
@@ -62,12 +69,12 @@ INSERT INTO films VALUES ('1990-02-12', 'MATRIX', 18, 8.7, 'США'), ('1990-02-
 
 LEFT JOIN
 
-<img width="314" alt="image" src="https://github.com/user-attachments/assets/4e5031b8-5da9-4788-b77b-a5881ef43a28" />
+<img width="214" alt="image" src="https://github.com/user-attachments/assets/4e5031b8-5da9-4788-b77b-a5881ef43a28" />
+<img width="282" alt="image" src="https://github.com/user-attachments/assets/75281be1-e0d3-4499-8ce7-4d5f12c4d6c7" />
 
 
 ### Псевдонимы (очень укарачивают записи)
 
 ```sh
-// 
  SELECT title, name, currency FROM country c RIGHT JOIN film f ON f.country = c.name;
 ```
