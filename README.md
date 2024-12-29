@@ -78,3 +78,33 @@ LEFT JOIN
 ```sh
  SELECT title, name, currency FROM country c RIGHT JOIN film f ON f.country = c.name;
 ```
+
+### Агрегированные функции
+- count, sum, avg, min/max
+
+отличие WHERE от HAVING. Where - сначало выбирает, а затем группирует и вычисляет агрегатные ф-ии. HAVING отбирает строки групп после группировки и вычисление агрегатов
+  ```sh
+ SELECT max(rating) from film;  // max знаяение рейтинга
+
+ SELECT country, max(rating), count(*) from film group by country;
+
+SELECT country, max(rating) from film 
+where release_date >= "1990-01-01"  // сначало фильтруем
+GROUP BY country  // группируем по странам (если США 3 фильма, то будет 3)
+HAVING count(*) >=2; // применяем агрегат где значение сгуппированных больше 2-х
+```
+
+### Обновление данных
+
+```sh
+  UPDATE film SET age_restriction = 18 where id =4;
+```
+
+### Удаление данных
+
+```sh
+  DELETE FROM film  where id =4;
+```
+
+
+## Первичные и внешние ключи
