@@ -69,8 +69,8 @@ INSERT INTO films VALUES ('1990-02-12', 'MATRIX', 18, 8.7, 'США'), ('1990-02-
 
 LEFT JOIN
 
-<img width="214" alt="image" src="https://github.com/user-attachments/assets/4e5031b8-5da9-4788-b77b-a5881ef43a28" />
-<img width="282" alt="image" src="https://github.com/user-attachments/assets/75281be1-e0d3-4499-8ce7-4d5f12c4d6c7" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/4e5031b8-5da9-4788-b77b-a5881ef43a28" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/75281be1-e0d3-4499-8ce7-4d5f12c4d6c7" />
 
 
 ### Псевдонимы (очень укарачивают записи)
@@ -128,6 +128,12 @@ ADD FOREIGN KEY (country) REFERENCES country(name);
 
 
 ## Индексы
+Предположим, следующий запрос является очень популярным
+- SELECT * FROM country where country="Italy";
 
+  
+```sh
+  
+```
 
 
