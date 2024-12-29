@@ -21,6 +21,7 @@ INSERT INTO films VALUES ('1990-02-12', 'MATRIX', 18, 8.7, 'США'), ('1990-02-
 ```
 
 ### Получение данных
+
 ```sh
   // ВЫБОРКА - ТАБЛИЦА - УСЛОВИЕ
 
@@ -28,6 +29,8 @@ INSERT INTO films VALUES ('1990-02-12', 'MATRIX', 18, 8.7, 'США'), ('1990-02-
   - SELECT title, country FROM film;
 
  - SELECT title, country, rating/2 AS fire_start_rating FROM film;
-- SELECT * FROM film where release_date > "2000-01-01" AND age_restriction < 18;
+ - SELECT * FROM film where release_date > "2000-01-01" AND age_restriction < 18;
+ - SELECT * FROM film ORDER BY reting DESC; //ASC
 
-```
+- SELECT DISTINCT country FROM film; //DISTINCT - только уникальные значения
+
