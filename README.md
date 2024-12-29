@@ -42,6 +42,8 @@ INSERT INTO films VALUES ('1990-02-12', 'MATRIX', 18, 8.7, 'США'), ('1990-02-
 
 **LEFT JOIN ** - если надо вывести все фильмы со странами, даже, если стран нет (все данные из исходной, даже, если в смежной данных нет)
 
+**RIGHT JOIN ** - в выборку попадут все значения из соединяемой таблицы
+
 ```sh
 // надо указать условие - по чему обьединять
 // если поменять местами SELECT * FROM counntry Join film - результат такой же (порядок только иной)
@@ -50,9 +52,22 @@ INSERT INTO films VALUES ('1990-02-12', 'MATRIX', 18, 8.7, 'США'), ('1990-02-
 
   SELECT title, country, currency FROM film JOIN country ON film.country = country.name;
 
-  SELECT title, name, currency FROM film LEFT JOIN country ON film.country = country.name;
+
+// left JOIN - порядок FROM country LEFT JOIN film важент - так как country будет вставлена вся целиком
+  SELECT title, name, currency FROM country LEFT JOIN film ON film.country = country.name;
+
+// right JOIN 
+ SELECT title, name, currency FROM country RIGHT JOIN film ON film.country = country.name;
 ```
+
 LEFT JOIN
-<img width="514" alt="image" src="https://github.com/user-attachments/assets/4e5031b8-5da9-4788-b77b-a5881ef43a28" />
+
+<img width="314" alt="image" src="https://github.com/user-attachments/assets/4e5031b8-5da9-4788-b77b-a5881ef43a28" />
 
 
+### Псевдонимы (очень укарачивают записи)
+
+```sh
+// 
+ SELECT title, name, currency FROM country c RIGHT JOIN film f ON f.country = c.name;
+```
