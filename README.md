@@ -1,5 +1,8 @@
 # sql
 
+## Создание и удаление таблиц
+- число столбцов фиксировано и не может быть больше чем 1600
+- по умолчению id нет. Это обычное поле
 ```sh
   CREATE TABLE films(
     title VARCHAR(100),   // символы до 100
@@ -8,6 +11,30 @@
     rating: REAL, // тип для хранения значений с плавающей точкой одинарной точности
     country VARCHAR(60),
 );
+
+ CREATE TABLE IF NOT EXISTS films(...
+ DROP TABLE products;
+```
+
+Если не указать тип - то значение будем NULL
+```sh
+CREATE TABLE products(
+  id           SERIAL UNIQUE NOT NULL      // порядок автоматический - 1,2,3,4 ... UNIQUE- уникальнео значение
+  title        NOT NULL VARCHAR(100),
+  subtitle     VARCHAR(100) DEFAULT "name default",
+  created      DATE DEFAULT CURRENT_DATE,
+  price        NOT NULL NUMERIC CHECK (price > 0),
+  discount:    NOT NULL NUMERIC CHECK (discount > 0),
+
+  CONSTRAIN valid_discount CHECK (price > discount)    // общее ограничение для всей таблицы + полный синтаксис
+  UNIQUE (title, created) //общее ограничение для полей 
+)
+
+
+но, id SERIAL UNIQUE NOT NULL - это не совсем правильно. Подобные ограничения задаются через PK
+id   PRIMARY KEY,
+
+PRIMARY KEY (product_id, id) // или через общее обьявление
 ```
 
 ```sh
