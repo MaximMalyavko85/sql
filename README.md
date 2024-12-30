@@ -141,4 +141,17 @@ ON film (country);
 DROP INDEX film_country_index;
 ```
 
-## Транзакции
+## Транзакции (позволяет обьединять несколько операций обращения к БД в одну группу)
+- все изменения видны только внутри транзакции (UPDATE первый ниже - если паралельно выполнить SELECT * from account - то будет первонаяальное значений)
+- только после завершение транзакции (COMMIT) мы получим результат в базе
+- либо выполняются вместе и полностью, либо совсем ничего (целостность транзакции)
+  
+  <img width="400" alt="image" src="https://github.com/user-attachments/assets/68c625c1-5c04-43f4-a996-dac914cde2e6" />
+  <img width="400" alt="image" src="https://github.com/user-attachments/assets/006e10f2-6cc1-4ea7-8678-c455e3defd07" />
+
+```sh
+BEGIN;  // начало транзакцмм
+UPDATE account SET balance = balance -1000 where name ="Andrey";
+UPDATE account SET balance = balance +1000 where name ="Sam";
+COMMIT;
+```
