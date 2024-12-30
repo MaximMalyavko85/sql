@@ -56,6 +56,21 @@ INSERT INTO films (release_date, title, rating, country) VALUES('1990-02-12', 'M
 INSERT INTO films VALUES ('1990-02-12', 'MATRIX', 18, 8.7, 'США'), ('1990-02-12', 'MATRIX', 18, 8.7, 'США'), ('1990-02-12', 'MATRIX', 18, 8.7, 'США'), ;
 ```
 
+### Изменение данных
+
+```sh
+ALTER TABLE orders ADD COLUMN date_created DATE;
+
+ALTER TABLE orders DROP COLUMN date_created;
+ALTER TABLE orders DROP COLUMN date_created CASCADE;
+
+ALTER TABLE users ADD COLUMN user_id SERIAL PRIMARY KEY;
+
+ALTER TABLE orders ALTER COLUMN user_id TYPE BIGINT;
+
+ALTER TABLE orders RENAME COLUMN quontity to quontity2
+```
+
 ### Получение данных
 
 ```sh
