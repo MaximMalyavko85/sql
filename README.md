@@ -35,6 +35,15 @@ CREATE TABLE products(
 id   PRIMARY KEY,
 
 PRIMARY KEY (product_id, id) // или через общее обьявление
+
+
+// FOREIGN KEY
+product_id INTEGER REFERENCES products (product_id) // указать через поле
+
+// или указать общее значение + запрещаем удалять
+FOREIGN KEY (product_id) REFERENCES products (product_id) ON DELETE RESTRICT
+// указать еще один ключ + при удалении одного - удаляется второе
+FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE 
 ```
 
 ```sh
