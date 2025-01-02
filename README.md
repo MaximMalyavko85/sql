@@ -86,6 +86,13 @@ UPDATE PRODUCT SET price=5_500 where id=1;
  - SELECT * FROM film ORDER BY reting DESC; //ASC
 
 - SELECT DISTINCT country FROM film; //DISTINCT - только уникальные значения
+
+- SELECT title, ROUND((price-discoud) /price * 100, 2) as offer from products;
+
+- SELECT * FROM colors, items where color_id = item_id;
+
+- SELECT * FROM colors, items
+WHERE LEFT(colors.title, 1)=LEFT(items.title, 1)      // LEFT - берет первую букву
 ```
 
 ### Изменение данных
@@ -134,6 +141,13 @@ LEFT JOIN
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/4e5031b8-5da9-4788-b77b-a5881ef43a28" />
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/75281be1-e0d3-4499-8ce7-4d5f12c4d6c7" />
+
+
+Типы связей
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/e8e9406d-4be1-4492-bc87-881aecb0feff" />
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/63ef62b0-84e2-440c-8ccb-78454b1c88b3" />
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/448c9c7b-3ba8-4832-a40f-d5223cd1f922" />
+
 
 
 ### Псевдонимы (очень укарачивают записи)
