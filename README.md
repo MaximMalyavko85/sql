@@ -68,7 +68,9 @@ ALTER TABLE users ADD COLUMN user_id SERIAL PRIMARY KEY;
 
 ALTER TABLE orders ALTER COLUMN user_id TYPE BIGINT;
 
-ALTER TABLE orders RENAME COLUMN quontity to quontity2
+ALTER TABLE orders RENAME COLUMN quontity to quontity2;
+
+UPDATE PRODUCT SET price=5_500 where id=1; 
 ```
 
 ### Получение данных
@@ -85,6 +87,16 @@ ALTER TABLE orders RENAME COLUMN quontity to quontity2
 
 - SELECT DISTINCT country FROM film; //DISTINCT - только уникальные значения
 ```
+
+### Изменение данных
+- если не перечислять значения, то надо указывать в строгой последовательности
+
+```sh
+INSERT INTO products (title, price, discount) VALUES ('IPhone', 49_000, 44_000), ('IPhone PRO', 47_000, 45_000);
+
+INSERT INTO products (title, price, discount) SELECT title || ' PRO', price *2, discount *2 from products; 
+```
+
 
 ### Соединение таблиц
 
