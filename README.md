@@ -232,3 +232,32 @@ UPDATE account SET balance = balance -1000 where name ="Andrey";
 UPDATE account SET balance = balance +1000 where name ="Sam";
 COMMIT;
 ```
+
+## UNION (обьединение результатов 2-х запросов)
+```sh
+SELECT * FROM product
+UNION
+SELECT * FROM product
+
+SELECT * FROM product
+UNION ALL        // ALL добавить дубликаты
+SELECT * FROM product
+
+
+SELECT * FROM product
+INTERSECT    // одинаковые записи из 2-х таблиц
+SELECT * FROM product_new
+```
+## WITH (для упрощение запросов. создает временную таблицу)
+
+## Типы данных
+- числовые SMALLINT, INTEGER, BIGINT(8байт), REAL(с плавающей запятой и одинарной точности), DOUBLE PRECISION ((с плавающей запятой и двойной точности - до 15 знаков)), NUMERIC
+- символьные CHAR(n, если короче n-заполняются пробелами), VARCHAR(n, не дополняет пробелами), TEXT(без длины)
+- Дата и время DATE (ISO8601, '2025-01-01'), TIME (HH:MI:SS[.MI]), TIME WITH TIMEZONE, TIMESTAMP (DATE+TIME), INTERVAL
+- Логический TRUE, FALSE, NULL(not defined)
+
+Операторы и функции
+- логические AND, OR, NOT
+- сравнения > < >= <= = <> , предикаты "BETWEEN 1 AND 3", "NOT BETWEEN", "IS NULL", "IS FALSE"
+- строковые функции CONCAT (||),
+- функции DATE ()
